@@ -18,7 +18,8 @@
 
   <!-- WA -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send/?phone=%2B6282223326818&text=Hallo+CAN+Creative%2C+saya+mendapatkan+info+dari+website+can.co.id%2C+apakah+bisa+bantu+saya+membuat+aplikasi%3F&app_absent=0" class="float" target="_blank">
+  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+POLRESTABES+SEMARANG%2C" class="float" target="_blank">
+  
     <i class="fab fa-whatsapp fa-2x"></i>
   </a>
   <!-- END WA -->
@@ -33,10 +34,9 @@
   </div>
   <nav class="main-menu shadow-top-down">
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="{{route('login')}}" class="scroll_effect">Login</a></li>
-      <li><a href="{{route('register')}}" class="scroll_effect">Register</a></li>
-      <li><a href="{{route('admin.home')}}" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
-      <li><a href="{{route('admin.homeEn')}}" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
+      <li><a href="{{route('login')}}" class="scroll_effect">Login Admin</a></li>
+      <li><a href="/homeId" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
+      <li><a href="/homeEn" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
     </ul>
   </nav>
   <!-- Home -->
@@ -48,11 +48,11 @@
       </div>
       <div class="templatemo_home_inner_wapper">
         <h2 class="text-center">(Surat Keterangan Catatan Kepolisian)</h2><br>
-        <p class="text-center">Kepolisian Republik Indonesia (POLRI) berkomitmen mempermudah proses pengurusan SKCK</p>
+        <p class="text-center">Kepolisian Resor Kota Besar (POLRESTABES) Semarang berkomitmen mempermudah proses pengurusan SKCK</p>
       </div>
       <div class="templatemo_home_inner_wapper btn_wapper">
         <div class="col-sm-12">
-          <a href="{{route('admin.SKCKForm')}}" class="btn col-xs-12 scroll_effect shadow-top-down">
+          <a href="{{route('admin.dashboard')}}" class="btn col-xs-12 scroll_effect shadow-top-down">
             PELAJARI LEBIH LANJUT
           </a>
         </div>
@@ -70,14 +70,14 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img src="\assets/img/images/drive.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/loginOnline">
             </div>
             <p>  <strong> SKCK ONLINE</strong> <br>
               Fitur ini digunakan untuk membantu proses
               pemohonan yang ada dengan mengisi form yang
               disediakan, kemudian pemohon akan mendapat
               notifikasi untuk pengambilan SKCK di Kantor
-              terdekat.
+              POLRESTABES.
             </p>
           </div>
         </div>
@@ -85,7 +85,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img  src="\assets/img/images/takeaway.png" style="width: 30%;"></img>
-              <a  href="{{route('admin.dashboard')}}">
+              <a  href="/loginTakeAway">
             </div>
             <p><strong>SKCK TAKE AWAY</strong> <br>
               Fitur ini adalah salah satu fitur yang ada
@@ -99,7 +99,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img  src="\assets/img/images/deliv.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/loginDelivery">
             </div>
             <p><strong>SKCK DELIVERY</strong><br>
               Fitur ini adalah fitur yang di gunakan untuk
@@ -113,7 +113,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img  src="\assets/img/images/onthespot.png" style="width: 30%;"></img>
-              <a href="{{('dashboard')}}">
+              <a href="/info">
             </div>
             <p><strong>SKCK INFO</strong><br>
               Fitur adalah fitur terbaru yang ada disini

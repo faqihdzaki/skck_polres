@@ -20,7 +20,7 @@ class SponsorController extends Controller
         $request->session()->put('information_address', $request->input('address'));
     //  dd(session()->all());
         
-        return view('admin.sponsor.index');
+        return view('admin.Sponsor.index');
         
     }
 

@@ -18,7 +18,7 @@
 
   <!-- WA -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send/?phone=%2B6282223326818&text=Hallo+CAN+Creative%2C+saya+mendapatkan+info+dari+website+can.co.id%2C+apakah+bisa+bantu+saya+membuat+aplikasi%3F&app_absent=0" class="float" target="_blank">
+  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+POLRESTABES+SEMARANG%2C" class="float" target="_blank">
     <i class="fab fa-whatsapp fa-2x"></i>
   </a>
   <!-- END WA -->
@@ -33,10 +33,9 @@
   </div>
   <nav class="main-menu shadow-top-down">
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="{{route('login')}}" class="scroll_effect">Login</a></li>
-      <li><a href="{{route('register')}}" class="scroll_effect">Register</a></li>
-      <li><a href="{{route('admin.home')}}" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
-      <li><a href="{{route('admin.homeEn')}}" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
+    <li><a href="{{route('login')}}" class="scroll_effect">Login Admin</a></li>
+      <li><a href="/homeId" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
+      <li><a href="/homeEn" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
     </ul>
   </nav>
   <!-- Home -->
@@ -48,8 +47,8 @@
       </div>
       <div class="templatemo_home_inner_wapper">
         <h2 class="text-center">(Police Record)</h2><br>
-        <p class="text-center">The Indonesian National Police (POLRI) is committed to ease the processs of SKCK (Police Record)</p>
-      </div>
+        <p class="text-center">The Big City Police (POLRESTABES) Semarang committed to ease the processs of SKCK (Police Record)</p>
+      </div> 
       <div class="templatemo_home_inner_wapper btn_wapper">
         <div class="col-sm-12">
           <a href="{{route('admin.dashboard')}}" class="btn col-xs-12 scroll_effect shadow-top-down">
@@ -70,14 +69,14 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img src="\assets/img/images/drive.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/loginOnline">
             </div>
             <p> <strong> SKCK ONLINE</strong> <br>
               This feature is used to assist the process
               existing application by filling out the form
               provided, then the applicant will receive
               notification for SKCK collection at the Office
-              closest.
+              POLRESTABES.
             </p>
           </div>
         </div>
@@ -85,7 +84,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img src="\assets/img/images/takeaway.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/loginTakeAway">
             </div>
             <p><strong>SKCK TAKE AWAY</strong> <br>
               This feature is one of the existing features
@@ -99,7 +98,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img src="\assets/img/images/deliv.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/loginDelivery">
             </div>
             <p><strong>SKCK DELIVERY</strong><br>
               This feature is a feature that is used for
@@ -113,7 +112,7 @@
           <div class="feature-box-inner">
             <div class="feature-box-icon">
               <img src="\assets/img/images/onthespot.png" style="width: 30%;"></img>
-              <a href="{{route('admin.dashboard')}}">
+              <a href="/info">
             </div>
             <p><strong>SKCK INFO</strong><br>
               Features are the latest features that are here

@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('layouts.admin-master-new')
 
 @section('title')
 Dashboard
@@ -83,6 +83,7 @@ Dashboard
           <div class="card-header">
             <p>Riwayat Sekolah</p>
           </div>
+          <div> <h9 style="color:#A9A9A9">*Isi data dengan Riwayat Awal Sekolah hingga pendidikan terakhir</h9></div><br>
           <div class="owl-carousel owl-theme" id="products-carousel">
             <form method="POST" action="{{route('admin.offense')}}" style="width:100%" id="school">
               @csrf

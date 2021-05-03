@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('layouts.admin-master-new')
 
 @section('title')
 Dashboard
@@ -82,6 +82,7 @@ Dashboard
           <form action="{{route('admin.couple')}}" method="post" enctype="multipart/form-data" id="skck">
             @csrf
             <div class="card-body">
+            <h9 style="color:#A9A9A9">*jika form yang anda isi tidak ada jawabannya, isi dengan "-"</h9>
               <div class="owl-carousel owl-theme" id="products-carousel">
                 <div class="form-group">
                   <label>Nama</label>
@@ -123,7 +124,7 @@ Dashboard
                   <input type="text" name="profession" class="form-control" required value="">
                 </div>
                 <div class="form-group">
-                  <label>Alamat Sekarang</label>
+                  <label>Alamat Sesuai KTP</label>
                   <textarea type="text" name="address" class="form-control" required value=""></textarea>
                 </div>
                 <div class="form-group">
@@ -134,10 +135,10 @@ Dashboard
                   <label>Nomor Passport</label>
                   <input type="text" name="no_passport" class="form-control" required value="">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label>No. KITAS/KITAP</label>
                   <input type="text" name="no_kita_kitap" class="form-control" required value="">
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label>Nomor Telp./Hp</label>
                   <input type="text" name="no_telp" class="form-control" required value="">

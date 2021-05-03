@@ -39,6 +39,7 @@ class AttachmentController extends Controller
         $request->session()->put('profession_history', $request->input('profession_history'));
         $request->session()->put('hoby', $request->input('hoby'));
         $request->session()->put('information_address', $request->input('address'));
+        
         return view('admin.lampiran.index');
     }
 
@@ -88,7 +89,7 @@ class AttachmentController extends Controller
         // $request->session()->put('fingerprint_image', $request->file( 'fingerprint_image')->getClientOriginalName());
 
         $request->session()->all();
-            dd(session()->all());
+            //dd(session()->all());
         $skck = SKCKForm::create([
             'name' => $request->session()->get('skck_name'),
             'born' => $request->session()->get('skck_born'),
@@ -180,11 +181,8 @@ class AttachmentController extends Controller
 
         
 
-     
 
-
-
-        return view('admin.skckform.index');
+        return view('admin.SKCKForm.index');
     }
 
     public function store_en(Request $request)
@@ -301,9 +299,7 @@ class AttachmentController extends Controller
 
      
 
-
-
-        return view('admin.skckform.index_en');
+        return view('admin.SKCKForm.index_en');
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\TakeAway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class TakeawayController extends Controller
 {
@@ -98,9 +99,48 @@ class TakeawayController extends Controller
         //
     }
 
-    public function upload()
+    public function upload($id)
     {
         //
-        return view('admin.takeaway.upload');
+        
+        $takeaway = DB::table('takeaway')->where('id', $id)->get();
+        // dd($takeaway);
+        return view('admin.takeaway.upload', compact('takeaway'));    
+    }
+
+    public function payment(Request $request, $id)
+    {
+        //
+           
+        $imagepath_takeawaypayment = $request->takeaway_payment->store('takeaway_payment_image','public');
+
+        $takeaway = array();
+        $takeaway['payment_image'] = $imagepath_takeawaypayment;      
+            
+        DB::table('takeaway')->where('id', $id)->update($takeaway);
+   
+
+        return redirect('/admin/takeawayhistory');
+    }
+
+    public function history()
+    {
+        //
+        $id = Auth::user()->id;
+        $takeaway = DB::table('takeaway')->where('user_id', $id)->get();
+
+        
+
+        // dd($takeaway)   ;
+        return view('admin.takeaway.history')->with('takeaway', $takeaway);
+    }
+
+    public function SKCKTakeaway() {
+        \Mail::send('emails.notify_skck_takeaway', [
+            'name'=>'Faqih',
+            'title'=>'Hai'
+        ], function($message) {
+            $message->to('faqihdzaki11@gmail.com');
+        });
     }
 }

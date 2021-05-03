@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('layouts.admin-master-new')
 
 @section('title')
 Dashboard
@@ -93,8 +93,8 @@ Dashboard
               <p>1. Istri/Suami</p>
             </div>
             <div class="card-body">
+              <h9 style="color:#A9A9A9">*jika form yang anda isi tidak ada jawabannya, isi dengan "-"</h9>
               <div class="owl-carousel owl-theme" id="products-carousel">
-
                 <div class="form-group">
                   <label>Nama</label>
                   <input type="text" name="couple_name" class="form-control" required value="">
@@ -138,6 +138,7 @@ Dashboard
               <p>2. Bapak</p>
             </div>
             <div class="card-body">
+            <h9 style="color:#A9A9A9">*Tulis (Alm) jika Bapak Sudah Meninggal, lalu isi form dengan tanda "-"</h9>
               <div class="owl-carousel owl-theme" id="products-carousel">
 
                 <div class="form-group">
@@ -183,6 +184,7 @@ Dashboard
               <p>3. Ibu</p>
             </div>
             <div class="card-body">
+            <h9 style="color:#A9A9A9">*Tulis (Alm) jika Ibu Sudah Meninggal, lalu isi form dengan tanda "-"</h9>
               <div class="owl-carousel owl-theme" id="products-carousel">
 
                 <div class="form-group">
@@ -228,6 +230,7 @@ Dashboard
               <p>4. Saudara Sekandung/Tiri</p>
             </div>
             <div class="card-body">
+            <h9 style="color:#A9A9A9">*jika form yang anda isi tidak ada jawabannya, isi dengan "-"</h9>
               <div class="owl-carousel owl-theme" id="products-carousel">
                 <div class="row ">
                   <div class="col-sm-4">
@@ -238,7 +241,11 @@ Dashboard
                     <label>Umur</label>
                     <input type="text" name="sibling_age" class="form-control" required placeholder="" value="">
                   </div>
-                  <div class="col-sm-7">
+                  <div class="col-sm-3">
+                    <label>Pekerjaan</label>
+                    <input type="text" name="sibling_occupation" class="form-control" required placeholder="" value="">
+                  </div>
+                  <div class="col-sm-4">
                     <label>Alamat</label>
                     <textarea type="text" name="sibling_address" class="form-control" required placeholder="" value=""></textarea>
                   </div>
@@ -294,10 +301,15 @@ Dashboard
                 <input type="text" name="name" class="form-control" required placeholder="" value="">
                 </div>
 
-                <div class="col-sm-7">
-                <label>Alamat</label>
-                <textarea type="text" name="name" class="form-control" required placeholder="" value=""></textarea>
-                </div> 
+                <div class="col-sm-3">
+                    <label>Pekerjaan</label>
+                    <input type="text" name="sibling_occupation" class="form-control" required placeholder="" value="">
+                  </div>
+                  
+                  <div class="col-sm-4">
+                    <label>Alamat</label>
+                    <textarea type="text" name="sibling_address" class="form-control" required placeholder="" value=""></textarea>
+                  </div>
                 </div>
                 <a type="button" class="btn btn-danger m-2 text-white delete-button">Delete</a>
                 </div>

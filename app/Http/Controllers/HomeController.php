@@ -38,5 +38,16 @@ class HomeController extends Controller
     {
         return view('admin.home.index_en');
     }
+    
+    public function testEmail() {
+        \Mail::send('emails.posts', [
+            'name'=>'Indra',
+            'title'=>'Hai'
+        ], function($message) {
+            $message->to('indrawandwiprasetyo@gmail.com');
+        });
+    }
+
+
 
 }

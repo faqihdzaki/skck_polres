@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('layouts.admin-master-new')
 
 @section('title')
 Dashboard
@@ -76,9 +76,10 @@ Dashboard
 
 
           <div class="card-header">
-            <h4>II.Tersangkut Perkara Pidana dan Pelanggaran</h4>
+            <h4>II.Tersangkut Perkara Pidana dan Pelanggaran</h4><br>
+                 <h9 style="color:#A9A9A9">*jika form yang anda isi tidak ada jawabannya, isi dengan "-"</h9>
           </div>
-
+          
            <form action="{{route('admin.other')}}" method="post" enctype="multipart/form-data" id="offense">
            @csrf
           <div class="row">
@@ -90,7 +91,10 @@ Dashboard
                 <div class="card-body">               
                   <div class="form-group">
                     <label>Apakah Saudara Pernah tersangkut perkara pidana?</label>
-                    <input type="text" name="case_1" class="form-control" required value="">
+                    <select name="" id="for_member" class="form-control" required>
+                    <option value="Pernah">Pernah</option>
+                    <option value="Tidak Pernah" selected>Tidak Pernah</option>
+                  </select>
                   </div>
                   <div class="form-group">
                     <label>Dalam Perkara apa? </label>
@@ -115,12 +119,16 @@ Dashboard
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <p>2. Pelanggaran</p>
+                  <p>2. Pelanggaran</p><br>
+                 
                 </div>
                 <div class="card-body">                
                   <div class="form-group">
-                    <label>Apakah Saudara Pernah melakukan pelanggaran hukum dan atau norma norma sosail?</label>
-                    <input type="text" name="offense_1" class="form-control" required value="">
+                    <label>Apakah Saudara Pernah melakukan pelanggaran hukum dan atau norma norma sosial?</label>
+                    <select name="" id="for_member" class="form-control" required>
+                    <option value="Iya" selected>Iya</option>
+                    <option value="Tidak" >Tidak</option>
+                  </select>
                   </div>
                   <div class="form-group">
                     <label>Pelanggaran hukum atau norma-norma sosial apa? </label>

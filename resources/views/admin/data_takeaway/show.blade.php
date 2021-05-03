@@ -41,7 +41,7 @@ Dashboard
               </div>
                <div class="form-group">
                 <label>Bukti Pembayran</label><br>                
-                <img src="{{ asset('/storage/'.$takeaway[0]->ktp_image) }}" alt="" style="height:200px;"><br><br>
+                <img src="{{ asset('/storage/'.$takeaway[0]->payment_image) }}" alt="" style="height:500px;"><br><br>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Delivery;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,10 +42,15 @@ class DeliveryController extends Controller
             'user_id' => Auth::user()->id,    
             'name' => request("name"),
             'address' => request("address"),
-            'no_telp' => request("no_telp")
-            
+            'no_telp' => request("no_telp")            
         ]);
-        // 
+        $user = User::find($takeAway->user_id);
+
+
+        \Mail::send('emails.notify_skck_delivery', ['data'=>$takeAway], function($message) use($user) {
+            $message->to($user->email);
+        });
+        
         return view('admin.delivery.index');
     }
 

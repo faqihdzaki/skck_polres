@@ -85,5 +85,7 @@ class DataDeliveryController extends Controller
     public function destroy($id)
     {
         //
+        DB::table('delivery')->where('id', $id)->delete();
+        return redirect('/admin/datadelivery');
     }
 }

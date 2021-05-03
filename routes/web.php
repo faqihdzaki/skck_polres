@@ -5,12 +5,51 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('admin.home.index');
 });
-
-
-Route::get('/homeEn', 'HomeController@index_en');
-Route::get('/HomeEn', function () {
+Route::get('/homeId', function () {
+    return view('admin.home.index');
+});
+Route::get('/homeEn', function () {
     return view('admin.home.index_en');
 });
+Route::get('/info', function () {
+    return view('admin.info.index');
+});
+//LOGIN USER
+Route::get('/loginOnline', function () {
+    return view('admin.SKCKForm.login');
+});
+Route::get('/loginTakeAway', function () {
+    return view('admin.takeaway.login');
+});
+Route::get('/loginDelivery', function () {
+    return view('admin.delivery.login');
+});
+//
+
+
+//SMTP
+Route::get('/test_email', function() {
+    return view('emails.notify_skck_online');
+});
+
+Route::get('/skck_takeaway1', function() {
+    return view('emails.notify_takeaway1');
+});
+Route::get('/skck_takeaway2', function() {
+    return view('emails.notify_takeaway2');
+});
+Route::get('/skck_takeaway3', function() {
+    return view('emails.notify_takeaway3');
+});
+Route::get('/skck_takeaway4', function() {
+    return view('emails.notify_takeaway4');
+});
+//SMTP//
+
+// Route::get('/homeEn', 'HomeController@index_en');
+// Route::get('/HomeEn', function () {
+//     return view('admin.home.index_en');
+// });
 
 
 Route::get('home', function () {
@@ -99,9 +138,13 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     Route::patch('status_en/{id}', [App\Http\Controllers\DataENController::class, 'status'])->name('status_en');
 
     //Take Away
+    Route::get('uploadtakeaway/{id}', [App\Http\Controllers\TakeawayController::class, 'upload'])->name('uploadtakeaway');
     Route::get('uploadtakeaway', [App\Http\Controllers\TakeawayController::class, 'upload'])->name('uploadtakeaway');
     Route::get('takeaway', [App\Http\Controllers\TakeawayController::class, 'index'])->name('takeaway');
     Route::post('takeawaystore', [App\Http\Controllers\TakeawayController::class, 'store'])->name('takeawaystore');
+    Route::post('takeawaypayment/{id}', [App\Http\Controllers\TakeawayController::class, 'payment'])->name('takeawaypayment');
+    Route::post('delivery/{id}', [App\Http\Controllers\TakeawayController::class, 'payment'])->name('delivery');
+    Route::get('takeawayhistory', [App\Http\Controllers\TakeawayController::class, 'history'])->name('takeawayhistory');
 
     Route::get('datatakeaway', [App\Http\Controllers\DataTakeawayController::class, 'index'])->name('datatakeaway');
     Route::get('datatakeawaydelete/{id}', [App\Http\Controllers\DataTakeawayController::class, 'destroy'])->name('datatakeawaydelete');
@@ -114,8 +157,8 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     //SKCK DELIVERY
     Route::get('delivery', [App\Http\Controllers\DeliveryController::class, 'index'])->name('delivery');
     Route::post('deliverystore', [App\Http\Controllers\DeliveryController::class, 'store'])->name('deliverystore');
-
-    Route::post('deliverypayment', [App\Http\Controllers\DeliveryController::class, 'payment'])->name('deliverypayment');
+    
+    
     Route::get('datadelivery', [App\Http\Controllers\DataDeliveryController::class, 'index'])->name('datadelivery');
     Route::get('datadeliverydelete/{id}', [App\Http\Controllers\DataDeliveryController::class, 'destroy'])->name('datadeliverydelete');
     Route::get('datadeliverydelete', [App\Http\Controllers\DataDeliveryController::class, 'destroy'])->name('datadeliverydelete');

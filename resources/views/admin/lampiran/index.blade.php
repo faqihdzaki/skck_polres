@@ -1,4 +1,4 @@
-@extends('layouts.admin-master')
+@extends('layouts.admin-master-new')
 
 @section('title')
 Dashboard
@@ -103,12 +103,12 @@ Dashboard
               <div class="form-group">
                 <br>
                 <label>Sidik Jari</label><br>
+                <small style="color:#A9A9A9">*Kosongi data jika tidak ada</small>
                 <input type="file" class="form-control" name="fingerprint_image">
               </div>
             </div>
             <div class="card-footer text-right">
               <a href="{{route('admin.other')}}" class="btn btn-secondary" type="reset">KEMBALI</a>
-              <!-- <a href="{{route('admin.sponsor')}}" class="btn btn-icon icon-right btn-primary">Next <i class="fas fa-arrow-right"></i></a> -->
               <button form="image" class="btn btn-primary">Next</button>
             </div>
           </form>

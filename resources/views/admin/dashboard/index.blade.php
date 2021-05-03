@@ -38,7 +38,7 @@ Dashboard
           <table class="table table-striped table-responsive">
             <tbody>
               <tr>
-                <td style="width: 150px;"><img src="\assets/img/images/skck.png"></td>
+                <td style="width: 150px;"><img src="\assets/img/images/drive.png"></td>
                 <td style="width: 300px;">SKCK ONLINE</td>
                 <td style="width: 1000px;">SKCK ONLINE Adalah salah satu Layanan yang Ada pada SKCK yang mana di gunakan untuk permohonan SKCK
                   bagi pemohon baru, dengan cara mengisi form secara online untuk mempermudah input data dan mengurangi antrian yang ada.
@@ -51,7 +51,7 @@ Dashboard
                 </td>
               </tr>
               <tr>
-                <td style="width: 150px;"><img src="\assets/img/images/skck.png"></td>
+                <td style="width: 150px;"><img src="\assets/img/images/takeaway.png"></td>
                 <td style="width: 300px;">SKCK TAKE AWAY</td>
                 <td style="width: 1000px;">SKCK TAKE AWAY Adalah layanan yang di peruntukan untuk para pemohon secara online.
                 <h6>langkah - langkah :</h6>
@@ -66,7 +66,7 @@ Dashboard
                 </td>
               </tr>
               <tr>
-                <td style="width: 150px;"><img src="\assets/img/images/skck.png"></td>
+                <td style="width: 150px;"><img src="\assets/img/images/deliv.png"></td>
                 <td style="width: 300px;">SKCK DELIVERY</td>
                 <td style="width: 1000px;">SKCK DELIVERY Layanan yang kami berikan untuk saudara saudara kami Difabel, layanan ini Kami
                   ciptakan untuk mempermudah teman teman untuk mendapatkan SKCK. Disini kami memberikan Dua layanan.
@@ -90,6 +90,5 @@ Dashboard
   </div>
   </div>
 </section>
-
 
 @endsection
