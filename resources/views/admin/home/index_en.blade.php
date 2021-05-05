@@ -18,7 +18,7 @@
 
   <!-- WA -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+POLRESTABES+SEMARANG%2C" class="float" target="_blank">
+  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+Pelayanan+SKCK+Polrestabes+SEMARANG%2C" class="float" target="_blank">
     <i class="fab fa-whatsapp fa-2x"></i>
   </a>
   <!-- END WA -->
@@ -33,7 +33,7 @@
   </div>
   <nav class="main-menu shadow-top-down">
     <ul class="nav nav-pills nav-stacked">
-    <li><a href="{{route('login')}}" class="scroll_effect">Login Admin</a></li>
+    <li><a href="{{route('admin.dashboard')}}" class="scroll_effect">Login Admin</a></li>
       <li><a href="/homeId" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
       <li><a href="/homeEn" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
     </ul>
@@ -51,7 +51,7 @@
       </div> 
       <div class="templatemo_home_inner_wapper btn_wapper">
         <div class="col-sm-12">
-          <a href="{{route('admin.dashboard')}}" class="btn col-xs-12 scroll_effect shadow-top-down">
+          <a href="/info" class="btn col-xs-12 scroll_effect shadow-top-down">
             LEARN MORE
           </a>
         </div>
@@ -68,10 +68,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img src="\assets/img/images/drive.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/online.png" style="width: 30%;"></img>
               <a href="/loginOnline">
             </div>
             <p> <strong> SKCK ONLINE</strong> <br>
+            <strong>(New Request)</strong><br>
               This feature is used to assist the process
               existing application by filling out the form
               provided, then the applicant will receive
@@ -87,6 +88,7 @@
               <a href="/loginTakeAway">
             </div>
             <p><strong>SKCK TAKE AWAY</strong> <br>
+            <strong>(Special for Extend)</strong><br>
               This feature is one of the existing features
               for the process of extending the SKCK, by the way
               fill in the form. The reasond to extend and Must
@@ -97,10 +99,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img src="\assets/img/images/deliv.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/delivery.png" style="width: 30%;"></img>
               <a href="/loginDelivery">
             </div>
             <p><strong>SKCK DELIVERY</strong><br>
+            <strong>(For Disability)</strong><br>
               This feature is a feature that is used for
               applicants with disabilities. Here are
               two ways, the first to fill in the data then the officer
@@ -111,10 +114,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img src="\assets/img/images/onthespot.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/info.png" style="width: 30%;"></img>
               <a href="/info">
             </div>
             <p><strong>SKCK INFO</strong><br>
+            <strong>(Information about SKCK)</strong><br>
               Features are the latest features that are here
               will bring up the locations that become
               there is a mobile SKCK. Including the SKCK schedule
@@ -168,14 +172,14 @@
             <h2 class="text-center"><span>For the benefit of the Community</span></h2><br>
           </header>
           <div class="col-md-6">
-            <p class="text-center"> <i class="fa fa-envelope"></i> Email <a href="mailto:skckonline@polri.go.id"></a><br /></p>
-            <p class="text-center">skckonline@polri.go.id</p>
+            <p class="text-center"> <i class="fa fa-envelope"></i> Email <a href="mailto:skckrestabessmg@gmail.com"></a><br /></p>
+            <p class="text-center">skckrestabessmg@gmail.com</p>
           </div>
           <div class="col-md-6">
-            <p class="text-center"><i class="fa fa-phone"></i> Police Public Relations Division
-              <a href="tel:010-020-0340"></a>
+            <p class="text-center"><i class="fa fa-phone"></i> Semarang Police SKCK Services (WA Chat Only)
+              <a href="tel:+6282288880220"></a>
             </p>
-            <p class="text-center">021-7398025</p>
+            <p class="text-center">0822 8888 0220</p>
           </div>
 
         </div>

@@ -12,7 +12,7 @@ class DataENController extends Controller
     //
     public function index()
     {
-        $skckform_en = DB::table('skckform_en')->get();        
+        $skckform_en = DB::table('skckform_en')->orderBy('id', 'DESC')->get();        
         return view('admin.data_skck_en.index')->with('skckform_en', $skckform_en);
     }
 

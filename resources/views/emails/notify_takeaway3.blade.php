@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,50 +10,35 @@
     .bordered {
         border: 1px solid black
     }
+
     td {
         border: 1px solid black
     }
 </style>
+
 <body>
-    <h4>Hallo, Faqih</h4>
-    <p>
-       Kami telah Memverifikasi data anda. </a>
-    </p>
-    <p>
-        Berikut adalah sekilas data diri anda:
-    </p>
-    <table style="border: 1px solid black">
-        <thead>
-            <th>Data Diri</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td style="border: 1px solid black">Nama</td>
-                <td style="border: 1px solid black">Faqih Dzaki</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid black">Alamat</td>
-                <td style="border: 1px solid black">Jl. Puspowarno</td>
-            </tr>
-            <tr>
-                <td style="border: 1px solid black">No Telp</td>
-                <td style="border: 1px solid black">+01222222</td>
-            </tr>
-            <tr>
-
-            </tr>
-        </tbody>
-    </table>
-    <br>
-
-    <p>
-        Selanjutnya, Silahkan upload bukti pembayaran anda ke link <a href="https://skck-online.idaman.org/admin/upload">berikut ini</a>
-    </p>
-    <p>
-        Ke rekening kami an.(siapa) no.rekening 000000000. Sebesar Rp 30,000 untuk biaya PNBB SKCK.
-    </p>
-    <p>
-        Terima Kasih Banyak
-    </p>
+    <h1>
+        <center>
+            <font size="5" face="arial">SKCK POLRESTABES SEMARANG</font>
+        </center>
+    </h1>
+    <center><b>
+            <img src="https://skck.polri.go.id/skckonline/assets/img/logo.png">
+            <center><b>
+                    <hr>
+                    <h4>Hallo, Faqih</h4>
+                    <p>
+                        Data Anda sudah terferivikasi </a>
+                    </p>
+                    <p style="color:red"> ID Anda: {{$id}} </p>
+                    <p>
+                        Selanjutnya, Silahkan Cek Data diri anda ke link <a href="">berikut ini</a>
+                    </p>
+                    <p>jika data diri anda Benar silahkan reply Email ini dengan subject "DATA BENAR"</p>
+                    <p>Jika data anda salah silahkan ke link  <a href=""> berikut ini</a>kemudian tunggu email selanjutnya</p>
+                    <p> Kemudian reply email sebalumnya dengan subject "PEMBENARAN DATA", dan tulis data apa yang salah dan pembenarannya. </p>
+                    <p> Terima Kasih Banyak</p>
+                    <hr>
 </body>
+
 </html>

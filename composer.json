@@ -12,6 +12,7 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "simplesoftwareio/simple-qrcode": "~4",
         "spatie/laravel-permission": "^2.37",
         "ycs77/laravel-wizard": "^2.3"
     },

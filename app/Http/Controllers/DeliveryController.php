@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Delivery;
-use App\User;
+use App\Mail\DeliveryMail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class DeliveryController extends Controller
 {
@@ -14,8 +16,12 @@ class DeliveryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        //
+        $request->session()->put('user_email', $request->input('user_email'));        
+        $request->session()->put('user_name', $request->input('user_name'));  
+        //   dd(session()->all());
         return view('admin.delivery.index');
     }
 
@@ -38,20 +44,18 @@ class DeliveryController extends Controller
     public function store(Request $request)
     {
         //
-        $takeAway = Delivery::create([
-            'user_id' => Auth::user()->id,    
-            'name' => request("name"),
+        $request->session()->all();
+        $delivery = Delivery::create([
+           $email =  'user_email' => $request->session()->get('user_email'),
+            'user_name' => $request->session()->get('user_name'), 
+            $name = 'name' => request("name"),
             'address' => request("address"),
-            'no_telp' => request("no_telp")            
+            $no_telp = 'no_telp' => request("no_telp")            
         ]);
-        $user = User::find($takeAway->user_id);
+        Mail::to($request->session()->get('user_email'))->send(new DeliveryMail($request->$name));
 
 
-        \Mail::send('emails.notify_skck_delivery', ['data'=>$takeAway], function($message) use($user) {
-            $message->to($user->email);
-        });
-        
-        return view('admin.delivery.index');
+        return redirect('/');
     }
 
     /**

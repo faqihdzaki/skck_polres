@@ -46,3 +46,47 @@
   @yield('scripts')
 </body>
 </html>
+<script>
+      $('table tbody').on('click', '.delete', function (e) {
+          //menghentikan link/event agar tidak jalan
+          var id = $(this).attr('id')
+          var method = $(this).attr('name')
+          console.log(method);
+          e.preventDefault();
+          Swal.fire({
+              title: 'Apakah anda yakin?',
+              text: "Data akan dihapus",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              cancelButtonText: 'Batal',
+              confirmButtonText: 'Hapus Data!',
+              focusCancel: true,
+
+          }).then((confirm, value) => {
+              if (confirm.value === true) {
+                  $.ajax({
+                      type: "post",
+                      url: "{{ url('')}}/" + method + '/' + id,
+                      data: {_method: 'delete'},
+                      success: function (data) {
+                          console.log(data)
+                          Swal.fire({
+                              title: "Berhasil",
+                              text: "Data Berhasil Dihapus",
+                              type: "success",
+                              showConfirmButton: false,
+                              timer: 3000
+                          }),
+                              location.reload()
+                      },
+                      error: function (data) {
+                          console.log(data)
+                          alert('Sorry, Something error :(')
+                      }
+                  })
+              }
+          })
+      });
+  </script>

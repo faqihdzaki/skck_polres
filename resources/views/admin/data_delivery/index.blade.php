@@ -22,11 +22,11 @@ Dashboard
               <!-- <a href="" class="btn btn-success">Tambah</a> -->
               <h4><a href="" class=""> </a></h4>
               <div class="card-header-form float-right">
-                <form method="get" action="">
+                <form method="get" action="{{Route('admin.caridatadelivery')}}">
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="search" value="{{$search??''}}">
+                  <input type="text" class="form-control" placeholder="Search" name="cari" value="{{ old('cari') }}">
                     <div class="input-group-btn">
-                      <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                      <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
                 </form>
@@ -39,6 +39,7 @@ Dashboard
                   <tr>
                     <th style="width: 100px">No</th>
                     <th style="width: 850px" text-align="center">User Name</th>                                        
+                    <th style="width: 850px" text-align="center">Email</th> 
                     <th style="width: 650px">Aksi</th>
                   </tr>
                 </thead>
@@ -47,7 +48,8 @@ Dashboard
                   @foreach($delivery as $r)                 
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ \DB::table('users')->where('id', $r->user_id)->first()->name??'' }}</td>                    
+                    <td>{{$r->user_name}}</td>                    
+                    <td>{{$r->user_email}} </td> 
                     <td>                      
                       <a href="{{Route('admin.datadeliveryshow')}}/{{ $r->id }}" class="m-1 badge bg-info text-white">View</a>
                       <a href="{{Route('admin.datadeliverydelete')}}/{{ $r->id }}" class="m-1 badge bg-danger text-white delete" id="">Delete</a>

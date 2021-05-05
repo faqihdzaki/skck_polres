@@ -40,6 +40,7 @@ class SchoolController extends Controller
         //sibling
         $request->session()->put('sibling_name', $request->input('sibling_name'));
         $request->session()->put('sibling_age', $request->input('sibling_age'));
+        $request->session()->put('sibling_occupation', $request->input('sibling_occupation'));
         $request->session()->put('sibling_address', $request->input('sibling_address'));
 
         // dd(session()->all());

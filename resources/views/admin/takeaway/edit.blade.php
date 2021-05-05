@@ -13,8 +13,8 @@ Dashboard
     <h1>Take Away</h1>
   </div>
 
-  <form action="" method="post" enctype="multipart/form-data" id="takeaway">
-    @csrf    
+  <form action="/takeawayupdate" method="post" enctype="multipart/form-data" id="takeaway">
+    @csrf
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
@@ -23,28 +23,40 @@ Dashboard
           </div>
           <div class="card-body">
             <div class="owl-carousel owl-theme" id="products-carousel">
+            <div class="form-group">
+                <label>ID Anda:</label><br>
+                <small>Silahkan masukan Id anda yang anda dapat pada Email</small>
+                <input type="text" class="form-control" name="id" id="">
+              </div>
+              <div class="form-group">
+                <label>Email Anda:</label><br>
+                <small>Silahkan masukan email Yang anda gunakan</small>
+                <input type="text" class="form-control" name="email" id="">
+              </div>
               <div class="form-group">
                 <label>Keperluan</label>
                 <br>
                 <small style="color:#A9A9A9">*Silahkan sebutkan alasan ingin melakukan perpanjangan</small><br>
                 <textarea type="text" name="reason" class="form-control" required value=""></textarea>
-              </div>              
+              </div>
+              <div class="form-group">
+                <label>Pekerjaan</label><br>
+                <input type="text" class="form-control" name="profession" id="">
+              </div>
+              
               <div class="form-group">
                 <label>Upload gambar SKCK Lama</label>
-                <input type="file" class="form-control" name="skck_takeaway_image" id="" >
+                <input type="file" class="form-control" name="skck_takeaway_image" id="">
               </div>
               <div class="form-group">
-                <label>Upload gambar KTP</label><br>                
-                <input type="file" class="form-control" name="ktp_takeaway_image" id="" >
+                <label>Upload gambar KTP</label><br>
+                <input type="file" class="form-control" name="ktp_takeaway_image" id="">
               </div>
               <div class="form-group">
-                <label>Upload Akte Lahir/Kenal Lahir/ijazah Terakhir 1 Lembar</label><br>                
-                <input type="file" class="form-control" name="ktp_takeaway_image" id="" >
+                <label>Upload Akte Lahir/Kenal Lahir/ijazah Terakhir 1 Lembar</label><br>
+                <input type="file" class="form-control" name="certificate_takeaway_image" id="">
               </div>
-              <div class="form-group">
-                <label>Pekerjaan</label><br>                
-                <input type="text" class="form-control" name="ktp_takeaway_image" id="" >
-              </div>
+          
             </div>
           </div>
         </div>

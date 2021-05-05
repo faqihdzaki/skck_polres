@@ -18,8 +18,8 @@
 
   <!-- WA -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+POLRESTABES+SEMARANG%2C" class="float" target="_blank">
-  
+  <a href="https://api.whatsapp.com/send/?phone=%2B6282288880220&text=Hallo+Pelayanan+SKCK+Polrestabes+SEMARANG%2C" class="float" target="_blank">
+
     <i class="fab fa-whatsapp fa-2x"></i>
   </a>
   <!-- END WA -->
@@ -34,7 +34,7 @@
   </div>
   <nav class="main-menu shadow-top-down">
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="{{route('login')}}" class="scroll_effect">Login Admin</a></li>
+      <li><a href="{{route('admin.dashboard')}}" class="scroll_effect">Login Admin</a></li>
       <li><a href="/homeId" class="scroll_effect"><i class="flag flag-indonesia"></i></a></li>
       <li><a href="/homeEn" class="scroll_effect"><i class="flag flag-united-kingdom"></i></a></li>
     </ul>
@@ -52,7 +52,7 @@
       </div>
       <div class="templatemo_home_inner_wapper btn_wapper">
         <div class="col-sm-12">
-          <a href="{{route('admin.dashboard')}}" class="btn col-xs-12 scroll_effect shadow-top-down">
+          <a href="/info" class="btn col-xs-12 scroll_effect shadow-top-down">
             PELAJARI LEBIH LANJUT
           </a>
         </div>
@@ -69,10 +69,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img src="\assets/img/images/drive.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/online.png" style="width: 30%;"></img>
               <a href="/loginOnline">
             </div>
-            <p>  <strong> SKCK ONLINE</strong> <br>
+            <p> <strong> SKCK ONLINE</strong><br>
+            <strong>(Permohonan Baru)</strong>
               Fitur ini digunakan untuk membantu proses
               pemohonan yang ada dengan mengisi form yang
               disediakan, kemudian pemohon akan mendapat
@@ -84,10 +85,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img  src="\assets/img/images/takeaway.png" style="width: 30%;"></img>
-              <a  href="/loginTakeAway">
+              <img src="\assets/img/images/takeaway.png" style="width: 30%;"></img>
+              <a href="/loginTakeAway">
             </div>
-            <p><strong>SKCK TAKE AWAY</strong> <br>
+            <p><strong>SKCK TAKE AWAY</strong><br>
+            <strong>(Khusus Memperpanjang)</strong>
               Fitur ini adalah salah satu fitur yang ada
               untuk proses memperpanjang SKCK, dengan cara
               mengisi form keperluan memperpanjang dan
@@ -98,10 +100,11 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img  src="\assets/img/images/deliv.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/delivery.png" style="width: 30%;"></img>
               <a href="/loginDelivery">
             </div>
             <p><strong>SKCK DELIVERY</strong><br>
+            <strong>(Khusus Disabelitas)</strong>
               Fitur ini adalah fitur yang di gunakan untuk
               pemohon yang memiliki Disabilitas.Disini ada
               2 cara, yang pertama mengisi data kemudian petugas
@@ -112,14 +115,16 @@
         <div class="col-sm-6 col-lg-3 feature-box">
           <div class="feature-box-inner">
             <div class="feature-box-icon">
-              <img  src="\assets/img/images/onthespot.png" style="width: 30%;"></img>
+              <img src="\assets/img/images/info.png" style="width: 30%;"></img>
               <a href="/info">
             </div>
             <p><strong>SKCK INFO</strong><br>
-              Fitur adalah fitur terbaru yang ada disini
-              akan memunculkan lokasi-lokasi yang menjadi
-              tempat SKCK keliling ada Termasuk jadwal SKCK
-              keliling yang ada di daerah Semarang ini.
+            <strong>(Informasi SKCK)</strong>
+              Fitur ini adalah fitur terbaru yang ada di
+              Polrestabes Semarang yang akan memunculkan 
+              Informasi informasi seputar jadwal SKCK dan
+              Informasi lainnya tentang Permohonan SKCK di 
+              Polresetabes Semarang.
             </p></a>
           </div>
         </div>
@@ -171,23 +176,23 @@
             <h2 class="text-center"><span>Untuk Kepentingan Masyarakat</span></h2><br>
           </header>
           <div class="col-md-6">
-            <p class="text-center"> <i class="fa fa-envelope"></i> Email <a href="mailto:skckonline@polri.go.id"></a><br /></p>
-            <p class="text-center">skckonline@polri.go.id</p>
+            <p class="text-center"> <i class="fa fa-envelope"></i> Email <a href="mailto:skckrestabessmg@gmail.com"></a><br /></p>
+            <p class="text-center">skckrestabessmg@gmail.com</p>
           </div>
           <div class="col-md-6">
-            <p class="text-center"><i class="fa fa-phone"></i> Police Public Relations Division
-              <a href="tel:010-020-0340"></a>
+            <p class="text-center"><i class="fa fa-phone"></i> Pelayanan SKCK Polrestabes Semarang (WA Chat Only)
+            <a href="tel:+6282288880220"></a>
             </p>
-            <p class="text-center">021-7398025</p>
+            <p class="text-center">0822 8888 0220</p>
           </div>
 
         </div>
       </div>
 
     </div>
-  
-  <!-- Footer -->
-  <!-- <footer> -->
+
+    <!-- Footer -->
+    <!-- <footer> -->
     <div class="container">
       <div class="row">
         <div class="col-xs-12 footer-copyright">
@@ -195,7 +200,7 @@
         </div>
       </div>
     </div>
-  <!-- </footer> -->
+    <!-- </footer> -->
   </section>
   <!-- require plugins -->
   <script src="{{ asset('assets/js/jquery.min.js') }}"></script>

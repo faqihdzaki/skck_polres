@@ -14,17 +14,79 @@ Route::get('/homeEn', function () {
 Route::get('/info', function () {
     return view('admin.info.index');
 });
-//LOGIN USER
+//skck
 Route::get('/loginOnline', function () {
     return view('admin.SKCKForm.login');
 });
+
+Route::post('/SKCKForm', 'SKCKFormController@index');
+Route::get('/SKCKForm', 'SKCKFormController@index');
+
+Route::post('/couple', 'CoupleController@index');
+Route::get('/couple', 'CoupleController@index');
+
+Route::post('/school', 'SchoolController@index');
+Route::get('/school', 'SchoolController@index');
+
+Route::post('/offense', 'OffenseController@index');
+Route::get('/offense', 'OffenseController@index');
+
+Route::post('/other', 'OtherInformationController@index');
+Route::get('/other', 'OtherInformationController@index');
+
+Route::post('/attachment', 'AttachmentController@index');
+Route::get('/attachment', 'AttachmentController@index');
+
+Route::post('/skckstore', 'AttachmentController@store');
+Route::get('/skckstore', 'AttachmentController@store');
+
+//Take away
 Route::get('/loginTakeAway', function () {
     return view('admin.takeaway.login');
 });
+
+
+Route::get('/Takeaway', 'TakeawayController@index');
+Route::post('/Takeaway', 'TakeawayController@index');
+
+Route::post('/takeawaystore', 'TakeawayController@store');
+Route::get('/takeawaystore', 'TakeawayController@store');
+
+Route::get('/takeawayupload', 'TakeawayController@upload');
+
+Route::post('/takeawaypayment', 'TakeawayController@payment');
+
+//delivery
 Route::get('/loginDelivery', function () {
     return view('admin.delivery.login');
 });
+
+Route::post('/Delivery', 'DeliveryController@index');
+Route::get('/Delivery', 'DeliveryController@index');
+
+Route::post('/deliverystore', 'DeliveryController@store');
+Route::get('/deliverystore', 'DeliveryController@store');
+
+
 //
+
+
+//INFO SKCK
+Route::get('/info', function () {
+    return view('admin.info.index');
+});
+Route::get('/info1', function () {
+    return view('admin.info.index1');
+});
+Route::get('/info2', function () {
+    return view('admin.info.index2');
+});
+Route::get('/info3', function () {
+    return view('admin.info.index3');
+});
+Route::get('/info4', function () {
+    return view('admin.info.index4');
+});
 
 
 //SMTP
@@ -45,12 +107,11 @@ Route::get('/skck_takeaway4', function() {
     return view('emails.notify_takeaway4');
 });
 //SMTP//
+Route::get('/input', function() {
+    return view('admin.konfirmasi');
+});
 
-// Route::get('/homeEn', 'HomeController@index_en');
-// Route::get('/HomeEn', function () {
-//     return view('admin.home.index_en');
-// });
-
+//Konfirmasi
 
 Route::get('home', function () {
     return redirect(route('admin.home'));
@@ -79,6 +140,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     Route::patch('update/{id}', [App\Http\Controllers\DataController::class, 'update'])->name('update');
     Route::patch('status/{id}', [App\Http\Controllers\DataController::class, 'status'])->name('status');
 
+    Route::get('caridataskck', [App\Http\Controllers\DataController::class, 'cari'])->name('caridataskck');
     Route::get('tik', [App\Http\Controllers\TIKController::class, 'index'])->name('tik');
 
     //SKCK IND FORM
@@ -146,6 +208,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     Route::post('delivery/{id}', [App\Http\Controllers\TakeawayController::class, 'payment'])->name('delivery');
     Route::get('takeawayhistory', [App\Http\Controllers\TakeawayController::class, 'history'])->name('takeawayhistory');
 
+    Route::get('caridatatakeaway', [App\Http\Controllers\DataTakeawayController::class, 'cari'])->name('caridatatakeaway');
     Route::get('datatakeaway', [App\Http\Controllers\DataTakeawayController::class, 'index'])->name('datatakeaway');
     Route::get('datatakeawaydelete/{id}', [App\Http\Controllers\DataTakeawayController::class, 'destroy'])->name('datatakeawaydelete');
     Route::get('datatakeawaydelete', [App\Http\Controllers\DataTakeawayController::class, 'destroy'])->name('datatakeawaydelete');
@@ -159,6 +222,7 @@ Route::name('admin.')->prefix('admin')->middleware('auth')->group(function () {
     Route::post('deliverystore', [App\Http\Controllers\DeliveryController::class, 'store'])->name('deliverystore');
     
     
+    Route::get('caridatadelivery', [App\Http\Controllers\DataDeliveryController::class, 'cari'])->name('caridatadelivery');
     Route::get('datadelivery', [App\Http\Controllers\DataDeliveryController::class, 'index'])->name('datadelivery');
     Route::get('datadeliverydelete/{id}', [App\Http\Controllers\DataDeliveryController::class, 'destroy'])->name('datadeliverydelete');
     Route::get('datadeliverydelete', [App\Http\Controllers\DataDeliveryController::class, 'destroy'])->name('datadeliverydelete');

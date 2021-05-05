@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Takeaway2Mail;
 use App\TakeAway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class DataTakeawayController extends Controller
 {
@@ -16,7 +18,7 @@ class DataTakeawayController extends Controller
     public function index()
     {
         //
-        $takeaway = DB::table('takeaway')->get();     
+        $takeaway = DB::table('takeaway')->orderBy('id', 'DESC')->get();     
         // dd($takeaway)   ;
         return view('admin.data_takeaway.index')->with('takeaway', $takeaway);
     }
@@ -93,13 +95,33 @@ class DataTakeawayController extends Controller
 
     public function status(Request $request, $id)
     {
-        $takeaway = TakeAway::findOrFail($id);
+        $take = TakeAway::findOrFail($id);
        
         $takeaway = array();
         $takeaway['status'] = $request->status;
     
-        DB::table('takeaway')->where('id', $id)->update($takeaway);      
+        DB::table('takeaway')->where('id', $id)->update($takeaway);     
+        
+        
+
         return redirect('/admin/datatakeaway');
     }
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$takeaway = DB::table('takeaway')
+		->where('user_email','like',"%".$cari."%")
+        ->orWhere('user_name','like',"%".$cari."%")        
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('admin.data_takeaway.index',['takeaway' => $takeaway]);
+ 
+	}
+
 
 }

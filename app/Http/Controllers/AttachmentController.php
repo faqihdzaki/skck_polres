@@ -39,7 +39,7 @@ class AttachmentController extends Controller
         $request->session()->put('profession_history', $request->input('profession_history'));
         $request->session()->put('hoby', $request->input('hoby'));
         $request->session()->put('information_address', $request->input('address'));
-        
+        // dd(session()->all());
         return view('admin.lampiran.index');
     }
 
@@ -73,24 +73,32 @@ class AttachmentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate(request(),[
+            'kk_image'=>'required',
+            'ktp_image'=>'required',
+            'your_image'=>'required',
+            'fingerprint_image'=>'nullable'
+            
+        ]);
     
         $imagepath_kk = $request->kk_image->store('kk','public');
         $imagepath_ktp = $request->ktp_image->store('ktp','public');
         $imagepath_your = $request->your_image->store('your','public');
-        $imagepath_fingerprint = $request->fingerprint_image->store('fingerprint','public');
-
-        // $request->session($imagepath_kk);
-        // $request->session($imagepath_ktp);
-        // $request->session($imagepath_your);
-        // $request->session($imagepath_fingerprint);
-        // $request->session()->put('kk_image', $request->file( 'kk_image')->getClientOriginalName());
-        // $request->session()->put('ktp_image', $request->file( 'ktp_image')->getClientOriginalName());
-        // $request->session()->put('your_image', $request->file( 'your_image')->getClientOriginalName());
-        // $request->session()->put('fingerprint_image', $request->file( 'fingerprint_image')->getClientOriginalName());
+      
+        
+        $image = $request->file('fingerprint_image');
+        if ($image) {
+            $imagepath_fingerprint = $image->store('fingerprint','public');
+        } else {
+            $imagepath_fingerprint = '';
+        }
 
         $request->session()->all();
-            //dd(session()->all());
+            // dd(session()->all());
+            // dd($imagepath_kk,$imagepath_ktp,$imagepath_your,$imagepath_fingerprint);
         $skck = SKCKForm::create([
+            'user_email' => $request->session()->get('user_email'),
+            'user_name' => $request->session()->get('user_name'),
             'name' => $request->session()->get('skck_name'),
             'born' => $request->session()->get('skck_born'),
             'date' => $request->session()->get('skck_date'),
@@ -100,14 +108,12 @@ class AttachmentController extends Controller
             'profession' => $request->session()->get('skck_profession'),
             'address' => $request->session()->get('skck_address'),
             'nik' => $request->session()->get('skck_nik'),
-            'no_passport' => $request->session()->get('skck_no_passport'),
-            'no_kita_kitap' => $request->session()->get('skck_no_kita_kitap'),
+            'no_passport' => $request->session()->get('skck_no_passport'),            
             'no_telp' => $request->session()->get('skck_no_telp'),
             'kk_image' => $imagepath_kk,
             'ktp_image' => $imagepath_ktp,
             'your_image' => $imagepath_your,
-            'fingerprint_image' => $imagepath_fingerprint,
-            'user_id' => Auth::user()->id,
+            'fingerprint_image' => $imagepath_fingerprint,            
             'status' => NULL
         ]);
         // return $skck;
@@ -141,19 +147,24 @@ class AttachmentController extends Controller
             'address' => $request->session()->get('mother_address'),
         ]);
 
-        Sibling::create([
-            'skck_id' =>$skck->id,
-            'name' => $request->session()->get('sibling_name'),
-            'age' => $request->session()->get('sibling_age'),            
-            'address' => $request->session()->get('sibling_address'),
-            
-        ]);
-
+        for($i = 0;$i<=count($request->session()->get('sibling_name'))-1; $i++){
+            Sibling::create([
+                'skck_id' =>$skck->id,
+                'name' => $request->session()->get('sibling_name')[$i],
+                'age' => $request->session()->get('sibling_age')[$i],            
+                'address' => $request->session()->get('sibling_address')[$i],
+                'occupation' => $request->session()->get('sibling_occupation')[$i]
+            ]);
+        }
+     
+        for($i = 0;$i<=count($request->session()->get('school_name'))-1; $i++){
         School::create([
             'skck_id' =>$skck->id,
-            'name' => $request->session()->get('school_name'),
-            'year' => $request->session()->get('school_year'),                        
+            'name' => $request->session()->get('school_name')[$i],
+            'year' => $request->session()->get('school_year')[$i]                        
         ]);
+        }
+        
         
         Cases::create([
             'skck_id' =>$skck->id,
@@ -182,7 +193,7 @@ class AttachmentController extends Controller
         
 
 
-        return view('admin.SKCKForm.index');
+        return redirect('/');
     }
 
     public function store_en(Request $request)

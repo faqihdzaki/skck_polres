@@ -14,7 +14,7 @@ class DataDeliveryController extends Controller
      */
     public function index()
     {
-        $delivery = DB::table('delivery')->get();     
+        $delivery = DB::table('delivery')->orderBy('id', 'DESC')->get();     
         // dd($delivery)   ;
         return view('admin.data_delivery.index')->with('delivery', $delivery);
     }
@@ -82,10 +82,20 @@ class DataDeliveryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-        DB::table('delivery')->where('id', $id)->delete();
-        return redirect('/admin/datadelivery');
-    }
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$delivery = DB::table('delivery')
+		->where('user_email','like',"%".$cari."%")
+        ->orWhere('user_name','like',"%".$cari."%")        
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('admin.data_delivery.index',['delivery' => $delivery]);
+ 
+	}
+    
 }

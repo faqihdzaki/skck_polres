@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Takeaway1Mail;
+use App\Mail\Takeaway2Mail;
 use App\TakeAway;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class TakeawayController extends Controller
 {
@@ -14,9 +17,12 @@ class TakeawayController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        $request->session()->put('user_email', $request->input('user_email'));        
+        $request->session()->put('user_name', $request->input('user_name'));  
+        //   dd(session()->all());
         return view('admin.takeaway.index');
     }
 
@@ -41,17 +47,27 @@ class TakeawayController extends Controller
 
         $imagepath_skck = $request->skck_takeaway_image->store('skck_takeaway_image', 'public');
         $imagepath_ktp = $request->ktp_takeaway_image->store('ktp_takeaway_image', 'public');
+        $imagepath_certificate = $request->certificate_takeaway_image->store('certificate_takeaway_image', 'public');
 
+        $request->session()->all();
         $takeAway = TakeAway::create([
-            'reason' => request("reason"),
-            'user_id' => Auth::user()->id,
+            'user_email' => $request->session()->get('user_email'),
+            'user_name' => $request->session()->get('user_name'),
+            'reason' => request("reason"), 
+            'profession' => request("profession"),            
             'skck_image' => $imagepath_skck,
             'ktp_image' => $imagepath_ktp,
+            'certificate_image' => $imagepath_certificate,
             'status' => null,
             'payment_image' => null
         ]);
+        $name = $request->session()->get('user_name');
+        $id = $takeAway->id;
+        
+        // dd($name);
         // 
-        return view('admin.takeaway.index');
+        Mail::to($request->session()->get('user_email'))->send(new Takeaway1Mail($name,$id));
+        return redirect('/');
     }
 
     /**
@@ -99,16 +115,16 @@ class TakeawayController extends Controller
         //
     }
 
-    public function upload($id)
+    public function upload()
     {
         //
         
-        $takeaway = DB::table('takeaway')->where('id', $id)->get();
+        
         // dd($takeaway);
-        return view('admin.takeaway.upload', compact('takeaway'));    
+        return view('admin.takeaway.upload');    
     }
 
-    public function payment(Request $request, $id)
+    public function payment(Request $request)
     {
         //
            
@@ -117,10 +133,16 @@ class TakeawayController extends Controller
         $takeaway = array();
         $takeaway['payment_image'] = $imagepath_takeawaypayment;      
             
+        $id = request("id");
+
+        $user_email = request("email");      
+
+        Mail::to($user_email)->send(new Takeaway2Mail($id));
+
         DB::table('takeaway')->where('id', $id)->update($takeaway);
    
 
-        return redirect('/admin/takeawayhistory');
+        return redirect('/');
     }
 
     public function history()

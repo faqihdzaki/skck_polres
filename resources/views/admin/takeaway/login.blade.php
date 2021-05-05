@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Login &mdash; SKCK </title>
+  <title>Pendaftaran &mdash; SKCK </title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -34,11 +34,11 @@
     <img src="https://skck.polri.go.id/skckonline/assets/img/logo.png" alt="logo" width="100px" class="rectangle"><br>
 <h4 class="text-dark font-weight-normal">Selamat Datang pada Layanan <span class="font-weight-bold">SKCK POLRESTABES SEMARANG</span></h4>
 <p class="text-muted">Silahkan masukan E-mail dan Nama lengkap anda</p>
-<form method="POST" action="" class="needs-validation" novalidate="">
-    <input type="hidden" name="_token" >          
+<form method="POST" action="/Takeaway" class="needs-validation" novalidate="" id="takeaway">
+@csrf      
           <div class="form-group">
         <label for="email" style="color:black;">Email</label>
-    <input id="email" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+    <input id="email" type="text" class="form-control" name="user_email" tabindex="1" required autofocus>
     <div class="invalid-feedback">
         Please fill in your username
     </div>
@@ -48,7 +48,7 @@
         <div class="d-block">
         <label for="nama"  style="color:black;">Nama Lengkap</label>
     </div>
-    <input id="nama" type="nama" class="form-control form-nama" name="nama" tabindex="2" required>
+    <input id="nama" type="nama" class="form-control form-nama" name="user_name" tabindex="2" required>
     <div class="invalid-feedback">
         please fill in your password
     </div>
@@ -63,9 +63,10 @@
         <!-- <a href="auth-forgot-password.html" class="float-left mt-3">
         Forgot Password?
     </a> -->
-    <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
+    <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4" form="takeaway">
         Next
     </button>
+
 </div>
 
 </form>

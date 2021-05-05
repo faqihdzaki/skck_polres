@@ -14,7 +14,9 @@ class SKCKFormController extends Controller
     public function index(Request $request)
     {
         
-        $request->session()->put('skck', $request->input('name'));
+        $request->session()->put('user_email', $request->input('user_email'));        
+        $request->session()->put('user_name', $request->input('user_name'));  
+        // dd(session()->all());
         return view('admin.SKCKForm.index');
     }
 

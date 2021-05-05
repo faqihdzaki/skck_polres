@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\DeliveryMail;
+use App\Mail\SKCKMail;
 use App\SKCKForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class DataController extends Controller
@@ -16,7 +19,7 @@ class DataController extends Controller
      */
     public function index()
     {
-        $skckform = DB::table('skckform')->get();        
+        $skckform = DB::table('skckform')->orderBy('id', 'DESC')->get();       
         return view('admin.data_skck.index')->with('skckform', $skckform);
     }
 
@@ -113,8 +116,7 @@ class DataController extends Controller
         $skck['profession'] = $request->skck_profession;
         $skck['address'] = $request->skck_address;
         $skck['nik'] = $request->skck_nik;
-        $skck['no_passport'] = $request->skck_no_passport;
-        $skck['no_kita_kitap'] = $request->skck_no_kita_kitap;
+        $skck['no_passport'] = $request->skck_no_passport;        
         $skck['no_telp'] = $request->skck_no_telp;
         $skck['kk_image'] = $imagepath_kk;
         $skck['ktp_image'] = $imagepath_ktp;
@@ -147,14 +149,16 @@ class DataController extends Controller
         $mother['address'] = $request->mother_address;  
 
         
-        $sibling = array();
-        $sibling['name'] = $request->sibling_name;
-        $sibling['age'] = $request->sibling_age;      
-        $sibling['address'] = $request->sibling_address;        
+        // $sibling = array();
+        // $sibling['name'] = $request->sibling_name;
+        // $sibling['age'] = $request->sibling_age;      
+        // $sibling['occupation'] = $request->sibling_occupation;   
+        // $sibling['address'] = $request->sibling_address;   
+
                    
-        $school = array();
-        $school['name'] = $request->school_name;
-        $school['year'] = $request->school_year;     
+        // $school = array();
+        // $school['name'] = $request->school_name;
+        // $school['year'] = $request->school_year;     
 
         
         $case = array();
@@ -182,8 +186,8 @@ class DataController extends Controller
         DB::table('couple')->where('skck_id', $id)->update($couple);
         DB::table('father')->where('skck_id', $id)->update($father);
         DB::table('mother')->where('skck_id', $id)->update($mother);
-        DB::table('sibling')->where('skck_id', $id)->update($sibling);
-        DB::table('school')->where('skck_id', $id)->update($school);
+        // DB::table('sibling')->where('skck_id', $id)->update($sibling);
+        // DB::table('school')->where('skck_id', $id)->update($school);
         DB::table('case')->where('skck_id', $id)->update($case);
         DB::table('offense')->where('skck_id', $id)->update($offense);
         DB::table('orther_information')->where('skck_id', $id)->update($orther_information);        
@@ -217,9 +221,30 @@ class DataController extends Controller
         $skck = array();
         $skck['status'] = $request->status;
      
-        DB::table('skckform')->where('id', $id)->update($skck);      
+        DB::table('skckform')->where('id', $id)->update($skck);     
+        
+        $user_email = $skckform->user_email;
+
+        Mail::to($user_email)->send(new SKCKMail);
+
         return redirect('/admin/data');
     }
+
+    public function cari(Request $request)
+	{
+		// menangkap data pencarian
+		$cari = $request->cari;
+ 
+    		// mengambil data dari table pegawai sesuai pencarian data
+		$skckform = DB::table('skckform')
+		->where('user_email','like',"%".$cari."%")
+        ->orWhere('user_name','like',"%".$cari."%")        
+		->paginate();
+ 
+    		// mengirim data pegawai ke view index
+		return view('admin.data_skck.index',['skckform' => $skckform]);
+ 
+	}
 
 
 // $image = $request->file('kk_image');
